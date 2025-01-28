@@ -26,7 +26,6 @@ public class PlayerSpawn : MonoBehaviour
     {
         if (!PlayerController.Instance.IsAlive())
         {
-            Debug.Log("Player respawn");
             PlayerController.Instance.Respawn();
             PlacePlayerOnSpawnPoint();
         }

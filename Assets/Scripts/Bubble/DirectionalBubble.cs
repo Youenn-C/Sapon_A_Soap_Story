@@ -122,7 +122,6 @@ public class DirectionalBubble : MonoBehaviour
     public IEnumerator ReleasePlayer()
     {
         // Une fois que la bulle atteint le dernier waypoint, on relâche le joueur
-        Debug.Log("Relâcher le joueur !");
         _isMoving = false;
 
         PlayerController.Instance._playerRb.gravityScale = 5;

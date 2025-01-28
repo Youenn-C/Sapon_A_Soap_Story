@@ -19,39 +19,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _jumpForce;
     [SerializeField] private int _moveSpeed;
     [Space(5)]
+    [SerializeField] private string[] _isGroundedTags;
+    [Space(5)]
+    public bool canMove = true;
     [SerializeField] private bool _isAlive;
     [SerializeField] private bool _isGrounded;
-    [SerializeField] private string[] _isGroundedTags;
     [SerializeField] private bool _asDobleJump;
+    [SerializeField] private bool _isDying = false;
+    [Space(5)]
+    [SerializeField] private float _timeTillRespawn = 0;
+    [SerializeField] private float _respawnTime = 1.0f;
+    [Space(5)]
     private Vector3 velocity = Vector3.zero;
-    
-    public bool canMove = true;
-    private float _timeTillRespawn = 0;
-    private float _respawnTime = 1.0f;
-    private bool _isDying = false;
     
     [Header("Rewired"), Space(5)]
     public Player player;
     [SerializeField] private int playerId = 0;
-
-    public bool IsAlive()
-    {
-        return _isAlive;
-    }
-    public void SetIsAlive(bool value)
-    {
-        if (value)
-        {
-            _animator.SetBool("IsAlive", value);
-            _isAlive = value;
-        }
-        else
-        {
-            _animator.SetBool("IsAlive", false);
-            _isDying = true;
-            _timeTillRespawn = 0;
-        }
-    }
 
     void Awake()
     {
@@ -88,6 +71,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary> ------------------------------------------------------------------------------------------------------
+    /// MOVEMENT -------------------------------------------------------------------------------------------------------
+    /// </summary> -----------------------------------------------------------------------------------------------------
+    
     void MovePlayer()
     {
         if (canMove)
@@ -118,35 +105,38 @@ public class PlayerController : MonoBehaviour
             _spriteRenderer.flipX = true;
         }
     }
-
+    public void Jump(float jumpForce)
+    {
+        _playerRb.AddForce(transform.up * jumpForce);
+        SetIsGrounded(false);
+    }
+    
+    /// <summary> ------------------------------------------------------------------------------------------------------
+    /// GROUND CHECK ---------------------------------------------------------------------------------------------------
+    /// </summary> -----------------------------------------------------------------------------------------------------
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        foreach (var tag in _isGroundedTags)
+        {
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                SetIsGrounded(true);
+            }
+        }
+    }
+    
     void SetIsGrounded(bool value)
     {
         _isGrounded = value;
         _animator.SetBool("IsGrounded", value);
     }
-
-    public void Jump(float jumpForce)
-    {
-        _animator.SetTrigger("IsJumping");
-        Debug.Log(transform.up * jumpForce);
-        _playerRb.AddForce(transform.up * jumpForce);
-        SetIsGrounded(false);
-    }
-
-    public void JumpWithAngle(float jumpForce, float jumpAngle)
-    {
-        _animator.SetTrigger("IsJumping");
-        float angleInRadians = jumpAngle * Mathf.PI / 180.0f;
-        Vector2 direction = new Vector2(Mathf.Cos(angleInRadians), Mathf.Sin(angleInRadians));
-        Debug.Log(direction * jumpForce);
-        _playerRb.AddForce(direction * jumpForce);
-        SetIsGrounded(false);
-    }
-
+    
+    /// <summary> ------------------------------------------------------------------------------------------------------
+    /// LIFE SYSTEM ----------------------------------------------------------------------------------------------------
+    /// </summary> -----------------------------------------------------------------------------------------------------
     public void Die()
     {
-        Debug.Log("Player died");
-        // TODO: run dead animation
         SetIsAlive(false);
         canMove = false;
     }
@@ -156,15 +146,23 @@ public class PlayerController : MonoBehaviour
         SetIsAlive(true);
         canMove = true;
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    
+    public bool IsAlive()
     {
-        foreach (var tag in _isGroundedTags)
+        return _isAlive;
+    }
+    public void SetIsAlive(bool value)
+    {
+        if (value)
         {
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                SetIsGrounded(true);
-            }
+            _animator.SetBool("IsAlive", value);
+            _isAlive = value;
+        }
+        else
+        {
+            _animator.SetBool("IsAlive", false);
+            _isDying = true;
+            _timeTillRespawn = 0;
         }
     }
 }

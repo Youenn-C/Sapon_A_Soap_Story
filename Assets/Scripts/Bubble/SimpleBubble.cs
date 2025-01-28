@@ -11,10 +11,8 @@ public class SimpleBubble : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision simple bubble");
         if (collision.collider.CompareTag("Player"))
         {
-            Debug.Log("Player collision");
             Propulsion();
         }
     }

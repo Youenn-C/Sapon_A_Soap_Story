@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         _cavasMainMenu.SetActive(false);
-        StartCoroutine(StartGameWhisFade());
+        StartCoroutine(SwitchSceneFade());
     }
     
     public void QuitGame()
@@ -89,11 +89,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
     }
 
-    public IEnumerator StartGameWhisFade()
+    public IEnumerator SwitchSceneFade()
     {
+        ToggleEnable(true);
         FadeIn();
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("S_Hub");
+        LoadScene("Hub");
         FadeOut();
+        yield return new WaitForSeconds(1f);
+        ToggleEnable(false);
     }
 }
