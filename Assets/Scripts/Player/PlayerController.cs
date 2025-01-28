@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _playerGo;
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Transform _groundCheck;
+    [SerializeField] private LayerMask _groundCollisionLayer;
     public Rigidbody2D _playerRb;
 
     [Header("Variables"), Space(5)]
@@ -22,13 +24,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string[] _isGroundedTags;
     [Space(5)]
     public bool canMove = true;
-    [SerializeField] private bool _isAlive;
+    [SerializeField] private bool _isAlive = true;
+    [SerializeField] private bool _canBeRespawn = true;
     [SerializeField] private bool _isGrounded;
-    [SerializeField] private bool _asDobleJump;
-    [SerializeField] private bool _isDying = false;
     [Space(5)]
-    [SerializeField] private float _timeTillRespawn = 0;
-    [SerializeField] private float _respawnTime = 1.0f;
+    [SerializeField] private float _groundCheckRadius;
+    [SerializeField] private float _respawnTime;
     [Space(5)]
     private Vector3 velocity = Vector3.zero;
     
@@ -49,26 +50,24 @@ public class PlayerController : MonoBehaviour
             Destroy(this);
         }
     }
+
+    void Start()
+    {
+        GameManager.Instance._deathCountText.text = "Number of Death : " + GameManager.Instance._deathCount.ToString(); 
+    }
     
     void Update()
     {
-        MovePlayer();
-
-        // Die duration
-        if (_isDying)
+        if (_isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, _groundCollisionLayer))
         {
-            if (_timeTillRespawn < _respawnTime)
-            {
-                _timeTillRespawn += Time.deltaTime;
-                canMove = false;
-            }
-            else
-            {
-                _isAlive = false;
-                _timeTillRespawn = 0;
-                _isDying = false;
-            }
+            SetIsGrounded(true);
         }
+        else
+        {
+            SetIsGrounded(false);
+        }
+        
+        MovePlayer();
     }
 
     /// <summary> ------------------------------------------------------------------------------------------------------
@@ -115,17 +114,6 @@ public class PlayerController : MonoBehaviour
     /// GROUND CHECK ---------------------------------------------------------------------------------------------------
     /// </summary> -----------------------------------------------------------------------------------------------------
     
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        foreach (var tag in _isGroundedTags)
-        {
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                SetIsGrounded(true);
-            }
-        }
-    }
-    
     void SetIsGrounded(bool value)
     {
         _isGrounded = value;
@@ -137,10 +125,31 @@ public class PlayerController : MonoBehaviour
     /// </summary> -----------------------------------------------------------------------------------------------------
     public void Die()
     {
-        SetIsAlive(false);
-        canMove = false;
+        StartCoroutine(DieProcess());
     }
 
+    public IEnumerator DieProcess()
+    {
+        var _canIncrement = true;
+        _isAlive = false;
+        _canBeRespawn = false;
+        canMove = false;
+        _playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+        _animator.SetBool("IsAlive", _isAlive);
+        
+        if (_canIncrement)
+        {
+            GameManager.Instance._deathCount ++;
+            GameManager.Instance._deathCountText.text = "Number of Death : " + GameManager.Instance._deathCount.ToString();
+            _canIncrement = false;
+        }
+        _playerRb.constraints = RigidbodyConstraints2D.None;
+        _playerRb.constraints = RigidbodyConstraints2D.FreezeRotation; 
+        yield return new WaitForSecondsRealtime(2f);
+        _canBeRespawn = true;
+    }
+    
     public void Respawn()
     {
         SetIsAlive(true);
@@ -161,8 +170,11 @@ public class PlayerController : MonoBehaviour
         else
         {
             _animator.SetBool("IsAlive", false);
-            _isDying = true;
-            _timeTillRespawn = 0;
         }
+    }
+
+    public bool GetCanBeRespawn()
+    {
+        return _canBeRespawn;
     }
 }

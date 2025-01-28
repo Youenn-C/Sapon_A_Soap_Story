@@ -579,7 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816124188}
   - component: {fileID: 1816124187}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: floor
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -821,11 +821,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6326922244121574304, guid: 73509b83f00b7b24bb49411ce4218cf4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.49
+      value: -9.37
       objectReference: {fileID: 0}
     - target: {fileID: 6326922244121574304, guid: 73509b83f00b7b24bb49411ce4218cf4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.10265
+      value: -3.98
       objectReference: {fileID: 0}
     - target: {fileID: 6326922244121574304, guid: 73509b83f00b7b24bb49411ce4218cf4, type: 3}
       propertyPath: m_LocalPosition.z

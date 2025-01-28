@@ -24,7 +24,7 @@ public class PlayerSpawn : MonoBehaviour
 
     void Update()
     {
-        if (!PlayerController.Instance.IsAlive())
+        if (!PlayerController.Instance.IsAlive() && PlayerController.Instance.GetCanBeRespawn())
         {
             PlayerController.Instance.Respawn();
             PlacePlayerOnSpawnPoint();

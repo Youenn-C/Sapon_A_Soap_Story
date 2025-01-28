@@ -8,11 +8,12 @@ TagManager:
   - UiIteraction
   - Ground
   - Bubbles
+  - CharacterUI
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

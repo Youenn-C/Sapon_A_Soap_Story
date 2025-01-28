@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class GameManager : MonoBehaviour
     [Space(5)]
     [SerializeField] private Animator _fadeAnimator;
     [SerializeField] private Animator _saponFadeAnimator;
+    
+    [Header("Player"), Space(5)]
+    public int _deathCount;
+    public TMP_Text _deathCountText;
 
     void Awake()
     {
