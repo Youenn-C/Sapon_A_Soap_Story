@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 250
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,9 +93,211 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GGJ_ground_kitchen_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 483.3333
+        width: 248
+        height: 241.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa90dd0806ad244a98ea5fdee79a9f0
+      internalID: 578022694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_ground_kitchen_1
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 483.3333
+        width: 248
+        height: 241.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a3599bff90fc9c478c42d7d1b423052
+      internalID: 1555646101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_ground_kitchen_2
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 483.3333
+        width: 248
+        height: 241.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71ea7c7db43f4d4098138b48657f8d8
+      internalID: 2004699356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_ground_kitchen_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 242.33333
+        width: 248
+        height: 241.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6be088e663ea615439a76af83dfdf97e
+      internalID: 206123756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_ground_kitchen_4
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 242.33333
+        width: 248
+        height: 241.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea0add93978279498e89ac21666bf01
+      internalID: -452810421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_ground_kitchen_5
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 242.33333
+        width: 248
+        height: 241.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11711c39c80878d4abb63d8ade089a83
+      internalID: -1204430826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_ground_kitchen_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.3333282
+        width: 248
+        height: 241.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f3b8613121e8a458a8c7a4b63ef373
+      internalID: 233762665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_ground_kitchen_7
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 1.3333282
+        width: 248
+        height: 241.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a770f889503b39a41ab7b220f819769e
+      internalID: 500616301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GGJ_ground_kitchen_8
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 1.3333282
+        width: 248
+        height: 241.66667
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da843f0fa1809042a35d2cb2b568647
+      internalID: 7366380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +308,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GGJ_ground_kitchen_0: 578022694
+      GGJ_ground_kitchen_1: 1555646101
+      GGJ_ground_kitchen_2: 2004699356
+      GGJ_ground_kitchen_3: 206123756
+      GGJ_ground_kitchen_4: -452810421
+      GGJ_ground_kitchen_5: -1204430826
+      GGJ_ground_kitchen_6: 233762665
+      GGJ_ground_kitchen_7: 500616301
+      GGJ_ground_kitchen_8: 7366380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
