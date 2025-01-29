@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Bubbles
   - CharacterUI
+  - FrameRate
   layers:
   - Default
   - TransparentFX
