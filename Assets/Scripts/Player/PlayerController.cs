@@ -67,6 +67,14 @@ public class PlayerController : MonoBehaviour
             SetIsGrounded(false);
         }
         
+        if (player.GetButtonDown("Jump") && _isGrounded && canMove)
+        {
+            Jump(_jumpForce);
+        }
+    }
+
+    private void FixedUpdate()
+    {
         MovePlayer();
     }
 
@@ -78,17 +86,13 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
-            float horizontalMovement = player.GetAxis("HorizontalMovement") * _moveSpeed * Time.deltaTime;
+            float horizontalMovement = player.GetAxis("HorizontalMovement") * _moveSpeed;
+            
             FlipPlayer(horizontalMovement);
             _animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
 
             Vector3 targetVelocity = new Vector2(horizontalMovement, _playerRb.velocity.y);
             _playerRb.velocity = Vector3.SmoothDamp(_playerRb.velocity, targetVelocity, ref velocity, 0.05f);
-                
-            if (player.GetButtonDown("Jump") && _isGrounded)
-            {
-                Jump(_jumpForce);
-            }
         }
     }
 
