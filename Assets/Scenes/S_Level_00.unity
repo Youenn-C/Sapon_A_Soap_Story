@@ -3048,7 +3048,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 788160387235703450, guid: 0352e4c75738bec40b0b068548326582, type: 3}
       propertyPath: _moveSpeed
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 788160387235703450, guid: 0352e4c75738bec40b0b068548326582, type: 3}
       propertyPath: _groundCheckRadius

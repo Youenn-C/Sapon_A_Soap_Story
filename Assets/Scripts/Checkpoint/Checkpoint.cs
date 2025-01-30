@@ -8,6 +8,7 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private Collider2D _checkpointCollider2D;
     [SerializeField] private SpriteRenderer _checkpointSpriteRenderer;
+    [SerializeField] private Animator _checkpointAnimator;
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -15,7 +16,7 @@ public class Checkpoint : MonoBehaviour
         {
             _spawnPoint.position = gameObject.transform.position;
             _checkpointCollider2D.enabled = false;
-            _checkpointSpriteRenderer.color = Color.green;
+            _checkpointAnimator.SetTrigger("ActiveCheckpoint");
         }
     }
 }
