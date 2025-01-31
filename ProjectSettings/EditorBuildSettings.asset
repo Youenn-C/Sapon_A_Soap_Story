@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/S_Level_Kitchen.unity
     guid: 1828e6934e0490f4faca5afa8c5ff417
+  - enabled: 1
+    path: Assets/Scenes/S_Level_jisipa.unity
+    guid: 68433fa49247ec244a973897b4a3343c
   m_configObjects: {}

@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
             case "Level_Kitchen":
                 SceneManager.LoadScene("S_Level_Kitchen");
                 break;
+            case "Level_jisipa":
+                SceneManager.LoadScene("S_Level_jisipa");
+                break;
         }
     }
 
