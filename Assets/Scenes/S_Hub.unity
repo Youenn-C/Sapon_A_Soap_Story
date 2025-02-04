@@ -2040,6 +2040,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: door (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4404845531720233293, guid: 6091342ed143ab64c92999ef9579d42f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4912387588884788968, guid: 6091342ed143ab64c92999ef9579d42f, type: 3}
       propertyPath: _levelToLoad
       value: Level_jisipa
