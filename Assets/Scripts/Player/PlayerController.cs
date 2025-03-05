@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
-using System.Threading.Tasks;
 
 public class PlayerController : MonoBehaviour
 {
@@ -91,8 +88,8 @@ public class PlayerController : MonoBehaviour
             FlipPlayer(horizontalMovement);
             _animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
 
-            Vector3 targetVelocity = new Vector2(horizontalMovement, _playerRb.velocity.y);
-            _playerRb.velocity = Vector3.SmoothDamp(_playerRb.velocity, targetVelocity, ref velocity, 0.05f);
+            Vector3 targetVelocity = new Vector2(horizontalMovement, _playerRb.linearVelocity.y);
+            _playerRb.linearVelocity = Vector3.SmoothDamp(_playerRb.linearVelocity, targetVelocity, ref velocity, 0.05f);
         }
     }
 
@@ -138,7 +135,6 @@ public class PlayerController : MonoBehaviour
         _isAlive = false;
         _canBeRespawn = false;
         canMove = false;
-        _playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
 
         _animator.SetBool("IsAlive", _isAlive);
         
